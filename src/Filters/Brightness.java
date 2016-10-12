@@ -35,17 +35,17 @@ public class Brightness extends BaseOfFilter {
 			final int pixelLength = 4;
 			for (int pixel = 0, row = 0, col = 0; pixel < byteMatrix.length; pixel += pixelLength) {
 				int argb = 0;
-	            argb += (((int) byteMatrix[pixel] & 0xff << 24)); // alpha
-	            argb += (addConstantAndCheckPixelBounds((int) byteMatrix[pixel+1] & 0xff)); // blue
-	            argb += ((addConstantAndCheckPixelBounds((int) byteMatrix[pixel+2] & 0xff)) << 8); // green
-	            argb += ((addConstantAndCheckPixelBounds((int) byteMatrix[pixel+3] & 0xff)) << 16); // red
-	            result[col][row] = argb;
+	            		argb += (((int) byteMatrix[pixel] & 0xff << 24)); // alpha
+			    	argb += (addConstantAndCheckPixelBounds((int) byteMatrix[pixel+1] & 0xff)); // blue
+			    	argb += ((addConstantAndCheckPixelBounds((int) byteMatrix[pixel+2] & 0xff)) << 8); // green
+			    	argb += ((addConstantAndCheckPixelBounds((int) byteMatrix[pixel+3] & 0xff)) << 16); // red
+			    	result[col][row] = argb;
 
-	            col++;
-	            if (col == width) {
-	               col = 0;
-	               row++;
-	            }
+			    	col++;
+			    	if (col == width) {
+					col = 0;
+			       		row++;
+				}
 			}
 		} else {
 			final int pixelLength = 3;
